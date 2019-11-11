@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     let cymbalPath = Bundle.main.bundleURL.appendingPathComponent("cymbal.mp3")
     
     var cymbalPlayer = AVAudioPlayer()
@@ -62,6 +63,5 @@ class ViewController: UIViewController {
     }
     
     
-    //hello test2
 }
 
