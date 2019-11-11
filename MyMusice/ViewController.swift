@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         do {
             backmusicPlayer = try AVAudioPlayer(contentsOf: backmusicPath, fileTypeHint: nil)
             
-            backmusicPlayer.mumberOfLoops = -1
+            backmusicPlayer.numberOfLoops = -1
             backmusicPlayer.play()
         } catch {
             print("エラーが発生しました!")
