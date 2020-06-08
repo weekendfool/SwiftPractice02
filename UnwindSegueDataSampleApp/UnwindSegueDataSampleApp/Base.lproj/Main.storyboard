@@ -61,6 +61,11 @@
                         <viewLayoutGuide key="safeArea" id="I8P-m3-slu"/>
                     </view>
                     <navigationItem key="navigationItem" id="CeD-dO-x67">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="acV-Zq-2Ro">
+                            <connections>
+                                <segue destination="RPj-KD-fuC" kind="unwind" unwindAction="exitCanselWithSegue:" id="k3U-6C-5b8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="OVc-eq-cdN">
                             <connections>
                                 <segue destination="RPj-KD-fuC" kind="unwind" unwindAction="exitDoneWithSegue:" id="9pY-dd-WzG"/>

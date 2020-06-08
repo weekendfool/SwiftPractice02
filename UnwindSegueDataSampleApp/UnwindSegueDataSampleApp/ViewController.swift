@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         //yellowLabelに遷移前の画面の値を代入する
         yellowLabel.text = green.greenTextField.text
     }
-
+    //グリーンでキャンセルボタンが押された時の処理
+    @IBAction func exitCansel(segue:UIStoryboardSegue) {
+        
+    }
 }
 
