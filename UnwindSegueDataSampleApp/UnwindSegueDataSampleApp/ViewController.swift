@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
     //グリーンでキャンセルボタンが押された時の処理
     @IBAction func exitCansel(segue:UIStoryboardSegue) {
-        
+        //特に処理を行わない
     }
 }
 
