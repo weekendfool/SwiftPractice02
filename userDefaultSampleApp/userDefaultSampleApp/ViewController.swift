@@ -14,11 +14,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if let text1 = UserDefaults.standard.string(forKey: "1234") {
+            textField.text = text1
+        }
     }
 
     @IBAction func pressButton(_ sender: Any) {
-        UserDefaults.standard.set(textField.text, forKey: "string")
+        UserDefaults.standard.set(textField.text, forKey: "1234")
     }
     
     
