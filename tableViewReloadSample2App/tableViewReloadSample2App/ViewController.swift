@@ -41,16 +41,19 @@ class ViewController: UIViewController, UITableViewDataSource {
         names[50] = NSDate().description
         
         tableView.reloadData()
+        
+    
+       
     }
    
-/*
+
     @IBAction func pressReloadRowsButton(_ sender: Any) {
-        names[50] = NSDate().description
+//        names[50] = NSDate().description
         
-        let indexPath = [NSIndexPath(row: 50, section: 0)]
+        let indexPath = IndexPath(row: 50, section: 0)
         
-        let animations:[UITableViewRowAction] = [.Fade, .Right, .Leftm, .Top, .Bottom .None, .Middle, .Automatic]
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
- */
+ 
 }
 
