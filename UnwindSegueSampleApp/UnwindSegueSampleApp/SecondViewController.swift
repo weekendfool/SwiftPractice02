@@ -20,6 +20,7 @@ class SecondViewController: UIViewController {
     
 
     @IBAction func pressDoneButton(_ sender: Any) {
+        //UISegmentedControlのどちらが選択されているかを調べる
         switch segueController.selectedSegmentIndex {
         case 0:
             performSegue(withIdentifier: "segueA", sender: sender)

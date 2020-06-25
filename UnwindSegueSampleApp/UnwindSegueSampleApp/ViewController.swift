@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    //segueによって戻ってきたときに実行する処理を分けられる
     @IBAction func exitBySegueA(segue: UIStoryboardSegue) {
         print("exitBySegueA")
     }
