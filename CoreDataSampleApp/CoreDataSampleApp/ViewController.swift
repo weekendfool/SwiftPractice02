@@ -7,18 +7,29 @@
 //
 
 import UIKit
+//CoreDataをインポート
 import CoreData
 
 class ViewController: UIViewController {
-
+    //パーツの紐付け
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     
+    //
+    var person:[String] = []
+    //
     var managedContext = (UIApplication.shared.delegate as! AppDelegat).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let conditions = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+        
+        do　{
+            person = try managedContext.fetch(conditions) as! [String]
+        }　catch　{
+            print("エラー")
     }
 
     @IBAction func pressCreateButton(_ sender: Any) {
