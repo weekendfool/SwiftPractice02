@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     
-    var box:[String] = []
+    var box:[Person] = []
     
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -28,47 +28,42 @@ class ViewController: UIViewController {
     }
 
     @IBAction func pressCreateButton(_ sender: Any) {
-        //entityのアンラップ
-        if let entity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext) {
-            //テキストのInt化　キャスト
-            let age = Int(ageTextField.text!)
-            //インスタンス作成
-            let personObject = NSManagedObject(entity: entity, insertInto: managedContext)
-            //core dataに情報を保存する処理
-            personObject.setValue(nameTextField.text, forKey: "name")
-            personObject.setValue(age, forKey: "age")
-            
-            
-            
-//            let v = (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-//            //エラー処理
-//            var error:NSError?
-//
-//            if  {
-//                print("保存に成功")
-//            } else {
-//                print("保存に失敗")
-//            }
         
-        }
+        let person = Person(context: managedContext)
+        
+        person.name = nameTextField.text
+        
+        person.age = Int16(ageTextField.text!)!
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        print(person.name)
+        
+        print(person.age)
+    
+        
     }
     
     @IBAction func pressReadButton(_ sender: Any) {
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
         
+        let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
+        
+        fetchRequest.returnsObjectsAsFaults = false
+
 //        var error:NSError?
         
         do {
-            box = try managedContext.fetch(fetchRequest) as! [String]
+            box = try managedContext.fetch(fetchRequest)
+            print("###############")
         } catch {
             print("error")
         }
         
-        for obj in box {
-            print("name: \(obj)")
-        }
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&: \(box[0])")
+//        for i in box {
+//            print(i)
+//        }
     }
 }
 
